@@ -71,5 +71,5 @@ CPPFLAGS    = -DMPP_LAND -I ../Data_Rec $(HYDRO_D) $(SPATIAL_SOIL) $(NWM_META) $
 LIBS 	    =	
 NETCDFINC   = $(NETCDF_INC)
 NETCDFLIB   = -L$(NETCDF_LIB) -lnetcdff -lnetcdf
-NETCDF_INC = /users_home/cmcc/vr25423/source/WRFV4.4.1_JUNO/WRFV4.4.1_sp_dist/NETCDF/include
+NETCDF_INC = /work/cmcc/vr25423/Project/SIP/WRFV4.4.1_sp_dist_SIP/NETCDF/include
 NETCDFLIB       =       -L/juno/opt/spacks/0.20.0/opt/spack/linux-rhel8-icelake/intel-2021.6.0/netcdf-c/4.9.0-cjqig6vj7re66bricxzn3a6i5kyeehwu/lib -lnetcdf

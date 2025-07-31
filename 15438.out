@@ -1,0 +1,65 @@
+Sender: LSF System <lsfadmin@n027-ibj>
+Subject: Job 15438: <compile> in cluster <juno> Done
+
+Job <compile> was submitted from host <login1-ibj> by user <vr25423> in cluster <juno> at Thu Jul 31 12:05:10 2025
+Job was executed on host(s) <6*n027-ibj>, in queue <p_short>, as user <vr25423> in cluster <juno> at Thu Jul 31 12:53:14 2025
+                            <2*n025-ibj>
+</users_home/cmcc/vr25423> was used as the home directory.
+</work/cmcc/vr25423/Project/SIP/WRFV4.4.1_sp_dist_SIP> was used as the working directory.
+Started at Thu Jul 31 12:53:14 2025
+Terminated at Thu Jul 31 13:26:59 2025
+Results reported at Thu Jul 31 13:26:59 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -q p_short
+#BSUB -J compile
+#BSUB -n 8
+#BSUB -o %J.out
+#BSUB -e %J.err
+#BSUB -P 0566
+#BSUB -M 32G
+
+
+R_OUT="/work/cmcc/vr25423/Project/SIP/WRFV4.4.1_sp_dist_SIP"
+cd ${R_OUT}
+
+#type alias "adriwrf" or load wrf environment as follows: $source /work/cmcc/wrf_cmcc-dev/giorgia/conf.sh
+#./clean  -a
+#./configure with option 15
+
+#edit configure.wrf and change FORMAT_FIXED and FORMAT_FREE change also in hydro/macros -cpp, 
+#edit configure.wrf and insert -DCLWRFGHG on archflags section before -DNETCDF
+# ${WRF-WRFhydro_AdriaClim}/test/em_real/CAMtr_volume_mixing_ratio is equal to CAMtr_volume_mixing_ratio.RCP8.5 which is the one we want to use
+# under run/ dir CAMtr_volume_mixing_ratio.RCP8.5?
+
+./compile -j 8 em_real >& log.compile 
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   3466.82 sec.
+    Max Memory :                                 4514 MB
+    Average Memory :                             1589.08 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              61
+    Max Threads :                                62
+    Run time :                                   2031 sec.
+    Turnaround time :                            4909 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <15438.err> for stderr output of this job.
+
